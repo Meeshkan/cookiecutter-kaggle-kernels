@@ -4,15 +4,10 @@
 
 ## Instructions
 
-Download Kaggle data to `input`:
+Download Kaggle data to `input` and unzip:
 
 ```bash
 $ make download
-```
-
-Unzip
-```bash
-$ make unzip
 ```
 
 Preprocess data:
