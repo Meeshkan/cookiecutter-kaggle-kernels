@@ -19,16 +19,21 @@ requirements:
 ## Make Dataset
 download: requirements
 	kaggle competitions download -c {{ cookiecutter.kaggle_competition }}
-	# TODO Process data
-	# $(PYTHON_INTERPRETER) src/data/make_dataset.py
+	./unzip_input.sh
+
+unzip_input:
+	./unzip_input.sh
 
 preprocess:
+	# TODO Fill in
 	echo "Preprocessing..."
 
 train:
+	# TODO Fill in
 	echo "Training..."
 
 submit:
+	# TODO Fill in
 	echo "Submitting..."
 
 ## Delete all compiled Python files

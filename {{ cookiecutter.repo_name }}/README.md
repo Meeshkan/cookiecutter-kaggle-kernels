@@ -1,27 +1,53 @@
-{{cookiecutter.project_name}}
-==============================
+# {{cookiecutter.project_name}}
 
 {{cookiecutter.description}}
 
-The idea of the template is to automate the following steps:
-- Download data to given folder
-- Preprocess data to an easy-to-read format
-- Explore data in `exploration`
-- Run one-off tests in `notebooks` (rename as `analysis`?)
+## Instructions
 
-To reproduce, `make [all]` should consist of following (or similar):
+Download Kaggle data to `input`:
+
+```bash
+$ make download
+```
+
+Unzip
+```bash
+$ make unzip
+```
+
+Preprocess data:
+```bash
+$ make preprocess [kernel=preprocess.ipynb]
+```
+
+Run the winning submission:
+```bash
+$ make train [kernel=train.ipynb]
+```
+
+For reproducibility, `make all` should perform all these steps in a pipeline.
+
+## Notebook organization
+
+- Explore data using notebooks in `kernels/exploration`
+- Experiment on preprocessing in `kernels/preprocessing`
+- Run one-off tests in `kernels/submissions`
+
+To reproduce, `make [all]` does the following:
 - `make download`
 - `make preprocess`
 - `make train model=resnet-thingy`
-- `make submission`
 
-Project Organization
-------------
+Project created with the [cookiecutter](https://github.com/audreyr/cookiecutter)
+template for [Kaggle competitions](https://github.com/Meeshkan/cookiecutter-kaggle-kernels).
+
+#### Detailed organization
 
 ```
     ├── LICENSE
-    ├── Makefile           <- Makefile with commands like `make data` or `make train`
+    ├── Makefile           <- Makefile with commands like `make download` or `make train`
     ├── README.md          <- The top-level README for developers using this project.
+    ├── unzip_input.sh     <- Bash script for unzipping all archives in `input`
     ├── data
     │   ├── external       <- Data from third party sources.
     │   ├── interim        <- Intermediate data that has been transformed.
@@ -35,6 +61,7 @@ Project Organization
     ├── kernels            <- Jupyter notebooks. Naming convention is a number (for ordering),
     │   ├── exploration       the creator's initials, and a short `-` delimited description, e.g.
     │   ├── preprocessing     `1.0-jqp-initial-data-exploration`.
+    │   ├── train
     │   └── submissions
     │
     ├── references         <- Data dictionaries, manuals, and all other explanatory materials.
