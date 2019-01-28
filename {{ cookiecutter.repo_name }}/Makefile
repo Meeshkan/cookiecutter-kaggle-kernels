@@ -18,7 +18,7 @@ requirements:
 
 ## Make Dataset
 download: requirements
-	kaggle competitions download -c {{ cookiecutter.kaggle_competition }}
+	kaggle competitions download -c {{ cookiecutter.kaggle_competition }} -p input
 	./unzip_input.sh
 
 unzip_input:
