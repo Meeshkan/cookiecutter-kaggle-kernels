@@ -24,7 +24,3 @@ $ cookiecutter https://github.com/meeshkan/cookiecutter-kaggle-kernels
 ```bash
 $ pip install -r requirements.txt
 ```
-
-```bash
-$ py.test tests
-```
