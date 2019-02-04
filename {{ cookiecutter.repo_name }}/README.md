@@ -22,6 +22,16 @@ $ make train [kernel=train.ipynb]
 
 For reproducibility, `make all` should perform all these steps in a pipeline.
 
+**Important**
+
+Kaggle kernels expect to find the dataset in directory `../input`. In contrast, for a notebook in path
+`kernels/exploration`, the dataset is found in `../../input`. To be able to use the same code
+both locally and in Kaggle, add a symbolic link in `kernels/` pointing to `input/`:
+
+```bash
+ln -sf ../input ./kernels/input
+```
+
 ## Notebook organization
 
 - Explore data using notebooks in `kernels/exploration`
