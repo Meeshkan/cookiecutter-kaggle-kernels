@@ -22,9 +22,7 @@ ln -sf ../input ./kernels/input
 
 ## Notebook organization
 
-- All kernels should have their own folder in `kernels/`.
-
-## Pushing kernels to Kaggle
+All kernels should have their own folder in `kernels/`.
 
 Before a kernel with a given folder can be pushed to Kaggle from command-line, it needs the metadata file `kernel-metadata.json` in the same folder. You can create it either by running 
 
@@ -32,7 +30,7 @@ Before a kernel with a given folder can be pushed to Kaggle from command-line, i
 $ kaggle kernels init -p /path/to/kernel/directory
 ```
 
-to initialize the file, or check [kernel-metadata.json](./kernels/exploration/kernel-metadata.json)
+to initialize the file, or check [kernel-metadata.json](./kernels/0-initial-exploration/kernel-metadata.json)
 for reference and copy it (with appropriate changes) to the folder with your kernel.
 
 Once you're happy with the kernel and metadata has been setup, push it to Kaggle for execution:
