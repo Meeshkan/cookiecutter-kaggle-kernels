@@ -10,18 +10,6 @@ Download Kaggle data to `input` and unzip:
 $ make download
 ```
 
-Preprocess data:
-```bash
-$ make preprocess [kernel=preprocess.ipynb]
-```
-
-Run the winning submission:
-```bash
-$ make train [kernel=train.ipynb]
-```
-
-For reproducibility, `make all` should perform all these steps in a pipeline.
-
 **Important**
 
 Kaggle kernels expect to find the dataset in directory `../input`. In contrast, for a notebook in path
@@ -34,17 +22,26 @@ ln -sf ../input ./kernels/input
 
 ## Notebook organization
 
-- Explore data using notebooks in `kernels/exploration`
-- Experiment on preprocessing in `kernels/preprocessing`
-- Run one-off tests in `kernels/submissions`
+- All kernels should have their own folder in `kernels/`.
 
-To reproduce, `make [all]` does the following:
-- `make download`
-- `make preprocess`
-- `make train model=resnet-thingy`
+## Pushing kernels to Kaggle
 
-Project created with the [cookiecutter](https://github.com/audreyr/cookiecutter)
-template for [Kaggle competitions](https://github.com/Meeshkan/cookiecutter-kaggle-kernels).
+Before a kernel with a given folder can be pushed to Kaggle from command-line, it needs the metadata file `kernel-metadata.json` in the same folder. You can create it either by running 
+
+```bash
+$ kaggle kernels init -p /path/to/kernel/directory
+```
+
+to initialize the file, or check [kernel-metadata.json](./kernels/exploration/kernel-metadata.json)
+for reference and copy it (with appropriate changes) to the folder with your kernel.
+
+Once you're happy with the kernel and metadata has been setup, push it to Kaggle for execution:
+
+```bash
+$ kaggle kernels push -p /path/to/kernel/directory
+```
+
+Note that all kernels are private by default.
 
 #### Detailed organization
 
@@ -64,10 +61,8 @@ template for [Kaggle competitions](https://github.com/Meeshkan/cookiecutter-kagg
     ├── models             <- Trained and serialized models, model predictions, or model summaries
     │
     ├── kernels            <- Jupyter notebooks. Naming convention is a number (for ordering),
-    │   ├── exploration       the creator's initials, and a short `-` delimited description, e.g.
-    │   ├── preprocessing     `1.0-jqp-initial-data-exploration`.
-    │   ├── train
-    │   └── submissions
+    │   └── exploration       the creator's initials, and a short `-` delimited description, e.g.
+    │                         `1.0-jqp-initial-data-exploration`.
     │
     ├── references         <- Data dictionaries, manuals, and all other explanatory materials.
     │
@@ -75,3 +70,6 @@ template for [Kaggle competitions](https://github.com/Meeshkan/cookiecutter-kagg
                               generated with `pip freeze > requirements.txt`
 
 ```
+
+Project created with the [cookiecutter](https://github.com/audreyr/cookiecutter)
+template for [Kaggle competitions](https://github.com/Meeshkan/cookiecutter-kaggle-kernels).
