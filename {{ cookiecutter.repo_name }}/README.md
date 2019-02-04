@@ -30,7 +30,7 @@ Before a kernel with a given folder can be pushed to Kaggle from command-line, i
 $ kaggle kernels init -p /path/to/kernel/directory
 ```
 
-to initialize the file, or check [kernel-metadata.json](./kernels/0-initial-exploration/kernel-metadata.json)
+to initialize the file, or check [kernel-metadata.json](./kernels/1.0-initial-exploration/kernel-metadata.json)
 for reference and copy it (with appropriate changes) to the folder with your kernel.
 
 Once you're happy with the kernel and metadata has been setup, push it to Kaggle for execution:
@@ -58,9 +58,9 @@ Note that all kernels are private by default.
     |
     ├── models             <- Trained and serialized models, model predictions, or model summaries
     │
-    ├── kernels            <- Jupyter notebooks. Naming convention is a number (for ordering),
-    │   └── exploration       the creator's initials, and a short `-` delimited description, e.g.
-    │                         `1.0-jqp-initial-data-exploration`.
+    ├── kernels                 <- Jupyter notebooks. Naming convention is a number (for ordering),
+    │   └ 1.0-initial-exploration  the creator's initials, and a short `-` delimited description, e.g.
+    │                              `1.0-jqp-initial-data-exploration`.
     │
     ├── references         <- Data dictionaries, manuals, and all other explanatory materials.
     │
